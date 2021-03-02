@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yp.bank.user.mapper.IUserMapper">
+    <resultMap id="userMapper" type="com.yp.bank.common.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userAddress" column="user_address"/>
+        <result property="userDelete" column="user_delete"/>
+        <result property="userCreateTime" column="user_createTime"/>
+        <result property="userUpdateTime" column="user_updateTime"/>
+    </resultMap>
+
+    <insert id="addUser">
+        insert into user_table (user_name, user_password,user_phone,  user_address, user_delete, user_createTime)
+        values (#{userName}, #{userPassword},#{userPhone}, #{userAddress}, #{userDelete}, #{userCreateTime})
+    </insert>
+
+    <update id="deleteUser">
+        update user_table set  user_delete = 1 where user_id = #{userId}
+    </update>
+
+    <update id="updateUser">
+        update user_table
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="userPassword != null">
+                user_password = #{userPassword}},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone} ,
+            </if>
+            <if test="userAddress != null">
+                user_address = #{userAddress} ,
+            </if>
+            <if test="userUpdateTime != null">
+                user_updateTime = #{userUpdateTime}
+            </if>
+        </set>
+        where user_id = #{userId}
+    </update>
+
+    <select id="findOneById" resultMap="userMapper">
+        select * from user_table where user_id = #{userId} and user_delete = 0
+    </select>
+
+    <select id="findAll" resultMap="userMapper">
+        select * from user_table and user_delete = 0
+    </select>
+
+
+</mapper>
