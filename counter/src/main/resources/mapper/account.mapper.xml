@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yp.bank.counter.mapper.IAccountMapper">
+    <resultMap id="AccountMapper" type="com.yp.bank.common.entity.Account">
+        <id property="accountId" column="account_id"/>
+        <result property="accountName" column="account_name"/>
+        <result property="accountRemainder" column="account_remainder"/>
+        <result property="accountPhone" column="account_phone"/>
+        <result property="accountPassword" column="account_password"/>
+        <result property="accountDelete" column="account_delete"/>
+        <result property="accountCreateTime" column="account_createTime"/>
+        <result property="accountUpdateTime" column="account_updateTime"/>
+    </resultMap>
+
+    <insert id="addAccount">
+        insert into account_table (account_name, account_remainder, account_phone, account_password, account_delete, account_createTime )
+        values (#{accountName}, #{accountRemainder}, #{accountPhone}, #{accountPassword}, #{accountDelete}, #{accountCreateTime})
+    </insert>
+
+    <update id="deleteAccount">
+        update account_table set account_delete = 1 where account_id = #{accountId}
+    </update>
+
+    <update id="updateAccount">
+        update  account_table
+        <set>
+            <if test="accountName != null">
+                account_name = #{accountName},
+            </if>
+            <if test="accountPhone !=null">
+                account_phone=#{accountPhone},
+            </if>
+            <if test="accountPassword != null">
+                account_password = #{accountPassword},
+            </if>
+            <if test="accountDelete != null">
+                account_delete=#{accountDelete},
+            </if>
+            account_updateTime = #{accountUpdateTime}
+        </set>
+        where account_id = #{accountId}
+    </update>
+
+    <select id="findOneById" resultMap="AccountMapper">
+        select * from account_table where account_id = #{accountId} and account_delete = 0
+    </select>
+
+    <select id="findAll" resultMap="AccountMapper">
+        select  * from account_table where account_delete = 0
+    </select>
+
+</mapper>

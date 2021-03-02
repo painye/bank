@@ -4,6 +4,10 @@ package com.yp.bank.common.entity;
  * @date 2021/3/2 11:09
  */
 
+import io.swagger.annotations.ApiOperation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Date;
@@ -14,6 +18,10 @@ import java.util.Date;
  * @author pan
  * @date 2021/3/2 11:09
  */
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
     private Integer accountId;
     private String accountName;

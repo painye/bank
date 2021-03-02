@@ -13,9 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apiguardian.api.API;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -44,28 +42,28 @@ public class UserController {
     }
 
     @ApiOperation("删除用户")
-    @PutMapping("/deleteUser.do")
+    @PostMapping("/deleteUser.do")
     public HttpResp deleteUser(int userId){
         iUserService.deleteUser(userId);
         return new HttpResp(200, "成功删除", null, LocalDateTime.now());
     }
 
     @ApiOperation("修改用户")
-    @PutMapping("/updateUser.do")
+    @PostMapping("/updateUser.do")
     public HttpResp updateUser(User user){
         iUserService.updateUser(user);
         return new HttpResp(200, "成功修改", user, LocalDateTime.now());
     }
 
     @ApiOperation("根据Id查找用户")
-    @PutMapping("/findOneByUserId.do")
+    @GetMapping("/findOneByUserId.do")
     public HttpResp findOneById(int userId){
         User oneById = iUserService.findOneById(userId);
         return new HttpResp(200, "成功查找到", oneById, LocalDateTime.now());
     }
 
     @ApiOperation("所有用户")
-    @PutMapping("/findAll.do")
+    @GetMapping("/findAll.do")
     public HttpResp findAll(){
         List<User> all = iUserService.findAll();
         return new HttpResp(200, "成功删除", all, LocalDateTime.now());
