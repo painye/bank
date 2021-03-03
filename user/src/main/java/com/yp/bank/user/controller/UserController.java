@@ -4,8 +4,9 @@ package com.yp.bank.user.controller;
  * @date 2021/3/2 13:28
  */
 
-import com.yp.bank.common.dto.HttpResp;
-import com.yp.bank.common.entity.User;
+
+import com.yp.bank.domain.dto.HttpResp;
+import com.yp.bank.domain.entity.User;
 import com.yp.bank.user.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,6 +1,6 @@
 package com.yp.bank.counter.mapper;
 
-import com.yp.bank.common.entity.Account;
+import com.yp.bank.domain.entity.Account;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

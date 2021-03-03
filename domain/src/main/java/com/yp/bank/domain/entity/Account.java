@@ -1,14 +1,12 @@
-package com.yp.bank.common.entity;
+package com.yp.bank.domain.entity;
 /**
  * @author pan
  * @date 2021/3/2 11:09
  */
 
-import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.Date;
 

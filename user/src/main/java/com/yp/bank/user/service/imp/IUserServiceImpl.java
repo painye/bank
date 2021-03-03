@@ -4,7 +4,7 @@ package com.yp.bank.user.service.imp;
  * @date 2021/3/2 13:10
  */
 
-import com.yp.bank.common.entity.User;
+import com.yp.bank.domain.entity.User;
 import com.yp.bank.user.mapper.IUserMapper;
 import com.yp.bank.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

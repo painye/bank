@@ -1,6 +1,6 @@
 package com.yp.bank.user.mapper;
 
-import com.yp.bank.common.entity.User;
+import com.yp.bank.domain.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

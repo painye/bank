@@ -6,7 +6,7 @@ package com.yp.bank.counter.service.imp;
 
 import com.yp.bank.counter.mapper.IAccountMapper;
 import com.yp.bank.counter.service.IAccountService;
-import com.yp.bank.common.entity.Account;
+import com.yp.bank.domain.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

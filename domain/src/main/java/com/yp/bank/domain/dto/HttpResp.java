@@ -1,4 +1,4 @@
-package com.yp.bank.common.dto;
+package com.yp.bank.domain.dto;
 /**
  * @author pan
  * @date 2021/3/2 11:25

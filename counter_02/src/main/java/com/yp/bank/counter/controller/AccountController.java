@@ -5,8 +5,8 @@ package com.yp.bank.counter.controller;
  */
 
 import com.yp.bank.counter.service.IAccountService;
-import com.yp.bank.common.dto.HttpResp;
-import com.yp.bank.common.entity.Account;
+import com.yp.bank.domain.dto.HttpResp;
+import com.yp.bank.domain.entity.Account;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,29 +31,33 @@ public class AccountController {
 
     @ApiOperation("办银行卡， 增加账户")
     @PutMapping("/addAccount.do")
-    public HttpResp addAccount( Account account){
+    public HttpResp addAccount(@RequestBody Account account){
+        System.out.println(account);
         iAccountService.addAccount(account);
         return  new HttpResp(200, "成功插入", null, LocalDateTime.now());
     }
 
     @ApiOperation("删除账户， 银行卡注销")
     @PostMapping("/deleteAccount.do")
-    public HttpResp deleteAccount(int accountId){
+    public HttpResp deleteAccount(@RequestBody Integer accountId){
+        System.out.println(accountId);
         iAccountService.deleteAccount(accountId);
         return new HttpResp(200, "成功删除", null, LocalDateTime.now());
     }
 
     @ApiOperation("修改账户基本信息")
     @PostMapping("/updateAccount.do")
-    public HttpResp updateAccount(Account account){
+    public HttpResp updateAccount(@RequestBody Account account){
+        System.out.println(account);
         iAccountService.updateAccount(account);
         return new HttpResp(200, null, "成功修改账户信息",LocalDateTime.now());
     }
 
     @ApiOperation("根据id查询账户的详细的情况")
     @GetMapping("/findOneByID.do")
-    public HttpResp findOneById(int userId){
-        Account oneById = iAccountService.findOneById(userId);
+    public HttpResp findOneById(@RequestParam Integer id){
+        System.out.println(id);
+        Account oneById = iAccountService.findOneById(id);
         return new HttpResp(200, "成功查找", oneById, LocalDateTime.now());
     }
 

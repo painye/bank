@@ -34,8 +34,8 @@
         <module>user</module>
         <module>counter</module>
         <module>euraka</module>
-        <module>fegin</module>
         <module>fegin1</module>
+        <module>domain</module>
     </modules>
 
 

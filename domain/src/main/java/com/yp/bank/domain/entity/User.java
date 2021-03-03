@@ -1,4 +1,4 @@
-package com.yp.bank.common.entity;
+package com.yp.bank.domain.entity;
 /**
  * @author pan
  * @date 2021/3/2 11:06

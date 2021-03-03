@@ -1,6 +1,7 @@
 package com.yp.bank.user.service;
 
-import com.yp.bank.common.entity.User;
+
+import com.yp.bank.domain.entity.User;
 
 import java.util.List;
 

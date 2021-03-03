@@ -1,6 +1,7 @@
 package com.yp.bank.counter.service;
 
-import com.yp.bank.common.entity.Account;
+
+import com.yp.bank.domain.entity.Account;
 
 import java.util.List;
 
