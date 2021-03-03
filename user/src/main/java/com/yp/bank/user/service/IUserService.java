@@ -1,7 +1,6 @@
 package com.yp.bank.user.service;
 
 import com.yp.bank.common.entity.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

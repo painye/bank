@@ -1,4 +1,4 @@
-package com.yp.bank.euraka;
+package com.yp.bank.fegin.euraka;
 /**
  * @author pan
  * @date 2021/3/3 11:57

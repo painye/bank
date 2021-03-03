@@ -51,7 +51,7 @@
     </select>
 
     <select id="findAll" resultMap="userMapper">
-        select * from user_table and user_delete = 0
+        select * from user_table where user_delete = 0
     </select>
 
 

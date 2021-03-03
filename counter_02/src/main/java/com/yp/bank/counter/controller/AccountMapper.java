@@ -4,9 +4,9 @@ package com.yp.bank.counter.controller;
  * @date 2021/3/2 15:35
  */
 
+import com.yp.bank.counter.service.IAccountService;
 import com.yp.bank.common.dto.HttpResp;
 import com.yp.bank.common.entity.Account;
-import com.yp.bank.counter.service.IAccountService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
