@@ -25,7 +25,7 @@ import java.util.List;
 @RestController
 @Api(tags = "账户管理模块")
 @RequestMapping("app/bank/counter")
-public class AccountMapper {
+public class AccountController {
     @Autowired
     public IAccountService iAccountService;
 
