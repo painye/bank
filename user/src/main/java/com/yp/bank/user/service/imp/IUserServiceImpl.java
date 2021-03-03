@@ -54,4 +54,11 @@ public class IUserServiceImpl implements IUserService {
     public List<User> findAll() {
         return iUserMapper.findAll();
     }
+
+    @Override
+    public User login(String userName, String userPassword) {
+        return null;
+    }
+
+
 }

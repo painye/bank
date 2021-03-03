@@ -19,4 +19,5 @@ public interface IUserService {
     public int updateUser(User user);
     public User findOneById(int userId);
     public List<User> findAll();
+    public User login(String userName, String userPassword);
 }
