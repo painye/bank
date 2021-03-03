@@ -19,10 +19,10 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo("银行排队服务-柜台模块",
                         "银行排队服务的柜台模块测试",
-                        "http://localhost:8081/swagger-ui.html",
+                        "http://localhost:8083/swagger-ui.html",
                         "v2.0"))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yp.bank.counter.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.yp.bank.counter-02.controller"))
                 .paths(PathSelectors.any())
                 .build();
 

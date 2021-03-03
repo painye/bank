@@ -63,4 +63,9 @@ public class AccountMapper {
         List<Account> all = iAccountService.findAll();
         return new HttpResp(200, "成功查找", all, LocalDateTime.now());
     }
+
+    @GetMapping("/who.do")
+    public String who(){
+        return "I am counter 2";
+    }
 }

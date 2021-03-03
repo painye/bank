@@ -34,6 +34,7 @@
         <module>user</module>
         <module>counter</module>
         <module>euraka</module>
+        <module>fegin</module>
     </modules>
 
 
