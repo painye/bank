@@ -20,4 +20,6 @@ public interface IUserService {
     public User findOneById(int userId);
     public List<User> findAll();
     public User login(String userName, String userPassword);
+    public List<User> Queue(int userId);
+    public User popQueue();
 }

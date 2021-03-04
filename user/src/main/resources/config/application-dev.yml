@@ -12,11 +12,11 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: user
-#  #配置redis
-#  redis:
-#    #连接操作系统端口
-#    host: 192.168.249.128
-#    port: 6379
+  #配置redis
+  redis:
+    #连接操作系统端口
+    host: 192.168.249.128
+    port: 6379
 mybatis:
   mapper-locations: mapper/*.mapper.xml
   type-aliases-package: com.yp.bank.common.entity

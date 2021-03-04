@@ -2,6 +2,7 @@ package com.yp.bank.fegin.Service;
 
 import com.yp.bank.domain.dto.HttpResp;
 import com.yp.bank.domain.entity.Account;
+import com.yp.bank.fegin.Service.impl.IFeginServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
  * @date 2021/3/3 21:26
  */
 
-@FeignClient(value = "counter")
+//将降级的服务作为回调
+@FeignClient(value = "counter", fallback = IFeginServiceImpl.class)
 public interface IFeginService {
     @GetMapping("app/bank/counter/who.do")
     public String who();
@@ -29,6 +31,4 @@ public interface IFeginService {
 
     @GetMapping("app/bank/counter/findAll.do")
     public HttpResp findAll();
-
-
 }

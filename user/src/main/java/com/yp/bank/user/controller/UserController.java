@@ -65,4 +65,27 @@ public class UserController {
         return new HttpResp(200, "成功删除", all, LocalDateTime.now());
     }
 
+    @ApiOperation("登录")
+    @GetMapping("/login.do")
+    public HttpResp login(@RequestParam String userName, @RequestParam String userPassword){
+        User login = iUserService.login(userName, userPassword);
+        return new HttpResp(200, "成功登录", login, LocalDateTime.now());
+    }
+
+    @ApiOperation("排队")
+    @GetMapping("/Queue.do")
+    public HttpResp Queue(int userId){
+        iUserService.Queue(userId);
+        return new HttpResp(200, "成功登录", null, LocalDateTime.now());
+    }
+
+    @ApiOperation("出队")
+    @GetMapping("/PopQueue.do")
+    public HttpResp PopQueue(){
+        User user = iUserService.popQueue();
+        return new HttpResp(200, "成功登录", user, LocalDateTime.now());
+    }
+
+
+
 }

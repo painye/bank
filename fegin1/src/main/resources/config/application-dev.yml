@@ -11,3 +11,7 @@ eureka:
 spring:
   application:
     name: fegin
+
+feign:
+  hystrix:
+    enabled: true

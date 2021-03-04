@@ -8,7 +8,9 @@ import com.yp.bank.domain.entity.User;
 import com.yp.bank.user.mapper.IUserMapper;
 import com.yp.bank.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.List;
@@ -24,6 +26,12 @@ import java.util.List;
 public class IUserServiceImpl implements IUserService {
     @Autowired
     public IUserMapper iUserMapper;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public int addUser(User user) {
@@ -57,7 +65,29 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public User login(String userName, String userPassword) {
-        return null;
+        return iUserMapper.login(userName, userPassword);
+    }
+
+    @Override
+    public List<User> Queue(int userId) {
+        User user = iUserMapper.findOneById(userId);
+        redisTemplate.opsForList().leftPush("UserQueue", user);
+        List<User> userQueue = redisTemplate.opsForList().range("UserQueue", 0, -1);
+        System.out.println(userQueue);
+        return userQueue;
+    }
+
+
+
+
+    @Override
+    public User popQueue(){
+        List userQueue = redisTemplate.opsForList().range("UserQueue", 0, -1);
+        Object o = redisTemplate.opsForList().rightPop("UserQueue");
+        User user = (User) o;
+        System.out.println(userQueue);
+        System.out.println(user);
+        return user;
     }
 
 

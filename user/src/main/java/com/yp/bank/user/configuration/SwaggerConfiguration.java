@@ -25,7 +25,6 @@ public class SwaggerConfiguration {
                 .apis(RequestHandlerSelectors.basePackage("com.yp.bank.user.controller"))
                 .paths(PathSelectors.any())
                 .build();
-
     }
 
 
